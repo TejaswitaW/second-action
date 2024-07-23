@@ -1,0 +1,25 @@
+name: Second Project
+on: push
+jobs:
+    test:
+        runs-on: ubuntu-latest
+        steps:
+            # Download the code from repository
+            - name: Get code
+            # Define identifier of the action
+              uses: actions/checkout@v3
+            # this is our first step,download that code
+
+            # Now next step
+            - name: Install nodeJS
+              uses: actions/setup-node@v3
+              with:
+                node-version: 18
+
+            # Install dependencies
+            - name: Install dependencies
+              run: npm ci
+
+            # Run tests
+            - name: Run tests
+              run: npm test
